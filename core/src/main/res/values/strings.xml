@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Core</string>
+
+    <string-array name="permission_titles">
+        <item>外部存储卡权限说明</item>
+        <item>相机权限说明</item>
+        <item>定位权限说明</item>
+        <item>麦克风权限说明</item>
+    </string-array>
+
+    <string-array name="permission_messages">
+        <item>为保存您的设置，节省您的网络流量，我们需要有读取sd卡的权限</item>
+        <item>需要获取相机权限才能进行拍照操作</item>
+        <item>需要获取定位权限才能为您带来更好的用户体验</item>
+        <item>需要获取麦克风权限才能使用该功能</item>
+    </string-array>
+</resources>
