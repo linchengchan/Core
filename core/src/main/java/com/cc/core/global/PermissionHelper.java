@@ -17,8 +17,8 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.lvjia.core.BuildConfig;
-import com.lvjia.core.R;
+import com.cc.core.BuildConfig;
+import com.cc.core.R;
 
 import java.util.ArrayList;
 import java.util.List;

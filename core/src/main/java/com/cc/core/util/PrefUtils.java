@@ -3,7 +3,7 @@ package com.cc.core.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.lvjia.core.Core;
+import com.cc.core.Core;
 
 import java.util.Map;
 import java.util.Set;

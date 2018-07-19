@@ -4,8 +4,8 @@ import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
 import android.support.v4.util.ArrayMap;
 
-import com.lvjia.core.action.Action;
-import com.lvjia.core.action.ActionLiveData;
+import com.cc.core.action.Action;
+import com.cc.core.action.ActionLiveData;
 
 public class ActionViewModel extends ViewModel {
 

@@ -15,11 +15,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lvjia.core.BuildConfig;
-import com.lvjia.core.activity.ISingleActivity;
-import com.lvjia.core.global.PermissionHelper;
-import com.lvjia.core.util.CoreUtils;
-import com.lvjia.core.widget.ETFragmentView;
+import com.cc.core.BuildConfig;
+import com.cc.core.activity.ISingleActivity;
+import com.cc.core.global.PermissionHelper;
+import com.cc.core.util.CoreUtils;
+import com.cc.core.widget.ETFragmentView;
 
 public abstract class LazyLoadFragment extends Fragment {
 

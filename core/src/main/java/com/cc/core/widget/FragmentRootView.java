@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.lvjia.core.Core;
+import com.cc.core.Core;
 
 final class FragmentRootView {
 

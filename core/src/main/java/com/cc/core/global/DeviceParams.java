@@ -8,8 +8,8 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 
-import com.lvjia.core.BuildConfig;
-import com.lvjia.core.util.PrefUtils;
+import com.cc.core.BuildConfig;
+import com.cc.core.util.PrefUtils;
 
 import java.lang.reflect.Method;
 import java.util.UUID;

@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.lvjia.core.BuildConfig;
+import com.cc.core.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;
