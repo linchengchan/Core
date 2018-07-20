@@ -29,7 +29,7 @@ android {
 
 
 // This is the library version used when deploying the artifact
-version = "1.0.0"
+version = "1.0.1"
 
 // 项目的主页
 def siteUrl = 'https://github.com/linchengchan/Core'
@@ -108,6 +108,7 @@ javadoc {
     }
 }
 
+//gradlew bintrayUpload
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
