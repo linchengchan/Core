@@ -5,13 +5,13 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.cc.core.BuildConfig;
+import com.cc.core.Core;
 
 import java.util.ArrayList;
 
 public class ActivityLifecycleCallbacksImpl implements Application.ActivityLifecycleCallbacks {
 
-    private static final boolean DEBUG = BuildConfig.DEBUG;
+    private static final boolean DEBUG = Core.debug();
     private static final String TAG = ActivityLifecycleCallbacksImpl.class.getSimpleName();
 
     private static ActivityLifecycleCallbacksImpl sLifecycleCallbacks;

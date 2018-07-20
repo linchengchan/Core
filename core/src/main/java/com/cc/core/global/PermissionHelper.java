@@ -17,7 +17,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.cc.core.BuildConfig;
+import com.cc.core.Core;
 import com.cc.core.R;
 
 import java.util.ArrayList;
@@ -122,7 +122,7 @@ public class PermissionHelper {
     private void jumpToAppSetting() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Uri uri = Uri.parse("package:" + BuildConfig.APPLICATION_ID);
+        Uri uri = Uri.parse("package:" + Core.getApp().getPackageName());
         intent.setData(uri);
         Activity activity = this.activity;
         if (activity == null) {
@@ -175,7 +175,7 @@ public class PermissionHelper {
     public static class Builder {
 
         private final String TAG = getClass().getSimpleName();
-        private final boolean DEBUG = BuildConfig.DEBUG;
+        private final boolean DEBUG = Core.debug();
 
         private final Activity activity;
 

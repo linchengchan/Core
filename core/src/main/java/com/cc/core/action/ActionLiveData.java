@@ -8,7 +8,8 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.cc.core.BuildConfig;
+
+import com.cc.core.Core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class ActionLiveData extends LiveData<Action> {
 
         @Override
         public boolean equals(Object obj) {
-            if (BuildConfig.DEBUG) {
+            if (Core.debug()) {
                 Log.d(getClass().getSimpleName(), "equals()-> ");
             }
             if (obj == this) {
@@ -62,7 +63,7 @@ public class ActionLiveData extends LiveData<Action> {
             realObserver.onChanged(action);
             //一个事件发出去被接受后应该自动清空
             if (actionLiveData.getValue() != null) {
-                if (BuildConfig.DEBUG) {
+                if (Core.debug()) {
                     Log.d(getClass().getSimpleName(), "onChanged()-> clear value");
                 }
                 actionLiveData.setValue(null);

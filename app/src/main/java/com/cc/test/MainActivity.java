@@ -3,6 +3,8 @@ package com.cc.test;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.cc.core.Core;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

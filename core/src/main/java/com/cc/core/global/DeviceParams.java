@@ -8,7 +8,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 
-import com.cc.core.BuildConfig;
+import com.cc.core.Core;
 import com.cc.core.util.PrefUtils;
 
 import java.lang.reflect.Method;
@@ -87,7 +87,7 @@ public class DeviceParams {
         DisplayMetrics displayMetrics = r.getDisplayMetrics();
         sScreenWidth = displayMetrics.widthPixels;
         sScreenHeight = displayMetrics.heightPixels;
-        if (BuildConfig.DEBUG) {
+        if (Core.debug()) {
             Log.d(TAG, "init()-> ");
             Log.d(TAG, "getScreenWidth()-> screen width: " + sScreenWidth + " height: " + sScreenHeight);
             Log.d(TAG, "init()-> sStatusBarHeight: " + sStatusBarHeight);

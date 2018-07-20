@@ -17,7 +17,7 @@ public final class PrefUtils {
     /**
      * sp文件名
      */
-    private static final String SHARED_PREF_NAME = "lvjia.sp.common";
+    private static final String SHARED_PREF_NAME = "core.sp.common";
 
     private static SharedPreferences getSP() {
         Context context = getContext();
@@ -25,10 +25,11 @@ public final class PrefUtils {
     }
 
     private static Context getContext() {
-        if (Core.sApp == null) {
+        Context context = Core.getApp();
+        if (context == null) {
             throw new NullPointerException("init first");
         }
-        return Core.sApp;
+        return context;
     }
 
     public static String getString(String key) {

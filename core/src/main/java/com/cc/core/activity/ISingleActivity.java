@@ -7,4 +7,5 @@ public interface ISingleActivity {
     void addFragmentToBackStack(Fragment fragment);
 
     void popFragment(Fragment f);
+
 }

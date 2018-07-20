@@ -15,7 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cc.core.BuildConfig;
+import com.cc.core.Core;
 import com.cc.core.activity.ISingleActivity;
 import com.cc.core.global.PermissionHelper;
 import com.cc.core.util.CoreUtils;
@@ -94,7 +94,7 @@ public abstract class LazyLoadFragment extends Fragment {
         super.onDestroyView();
         isCreatedView = false;
         loadedData = false;
-        if (BuildConfig.DEBUG) {
+        if (Core.debug()) {
             String fragmentName = getClass().getSimpleName();
             Log.d(fragmentName, "onDestroyView()-> " + fragmentName);
         }
@@ -103,7 +103,7 @@ public abstract class LazyLoadFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (BuildConfig.DEBUG) {
+        if (Core.debug()) {
             String fragmentName = getClass().getSimpleName();
             Log.d(fragmentName, "onDestroy()-> " + fragmentName);
         }

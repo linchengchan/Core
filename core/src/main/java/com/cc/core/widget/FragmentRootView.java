@@ -7,8 +7,6 @@ import android.os.IBinder;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.cc.core.Core;
-
 final class FragmentRootView {
 
     private static void setBackgroundColor(View view) {
@@ -43,7 +41,8 @@ final class FragmentRootView {
         InputMethodManager im = ETFragmentView.getInputMethodManager();
         if (token != null) {
             if (im == null) {
-                im = (InputMethodManager) Core.sApp.getSystemService(Context.INPUT_METHOD_SERVICE);
+                im = (InputMethodManager) ETFragmentView.getView()
+                        .getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 ETFragmentView.setInputMethodManager(im);
             }
             if (im != null) {

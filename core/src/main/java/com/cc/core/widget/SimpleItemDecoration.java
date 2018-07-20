@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.annotation.ColorInt;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +29,7 @@ public class SimpleItemDecoration extends RecyclerView.ItemDecoration {
 
     private Rect mPadding;
     private Rect mPaddingColor;
-    private int mOrientation;
+    private int mOrientation = -1;
 
 
     private static final int DIVIDER_MIDDLE = 0;
@@ -38,7 +39,7 @@ public class SimpleItemDecoration extends RecyclerView.ItemDecoration {
 
     private int mDividerType = DIVIDER_MIDDLE;
 
-    public SimpleItemDecoration(int orientation, int drawDistance, @ColorInt int drawColor, Rect padding, Rect paddingColor) {
+    public SimpleItemDecoration(int drawDistance, @ColorInt int drawColor, Rect padding, Rect paddingColor) {
         if (padding != null) {
             if (padding.left == 0 &&
                     padding.right == 0 &&
@@ -52,27 +53,14 @@ public class SimpleItemDecoration extends RecyclerView.ItemDecoration {
         if (drawDistance < 0) {
             drawDistance = 0;
         }
-        if (orientation != RecyclerView.HORIZONTAL && orientation != RecyclerView.VERTICAL) {
-            mOrientation = RecyclerView.VERTICAL;
-        } else {
-            mOrientation = orientation;
-        }
         mDrawDistance = drawDistance;
         mDrawColor = drawColor;
         mPadding = padding;
         mPaddingColor = paddingColor;
     }
 
-    public SimpleItemDecoration(int drawDistance, @ColorInt int drawColor, Rect padding, Rect paddingColor) {
-        this(RecyclerView.VERTICAL, drawDistance, drawColor, padding, paddingColor);
-    }
-
-    public SimpleItemDecoration(int orientation, int drawDistance, @ColorInt int drawColor) {
-        this(orientation, drawDistance, drawColor, null, null);
-    }
-
     public SimpleItemDecoration(int drawDistance, @ColorInt int drawColor) {
-        this(RecyclerView.VERTICAL, drawDistance, drawColor, null, null);
+        this(drawDistance, drawColor, null, null);
     }
 
     public void setAllDividerType(int startDistance, int endDrawDistance, int startColor, int endDrawColor) {
@@ -98,6 +86,7 @@ public class SimpleItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+
         if (mDrawColor == Color.TRANSPARENT) {
             return;
         }
@@ -387,12 +376,14 @@ public class SimpleItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        validLayoutManager(parent);
 
         int position = parent.getChildAdapterPosition(view);
         int itemCount = parent.getAdapter().getItemCount();
         if (DEBUG) {
             Log.d(TAG, "getItemOffsets()-> position: " + position);
         }
+
         if (mDividerType == DIVIDER_ALL) {
             itemOffsetAll(outRect, position, itemCount);
         } else if (mDividerType == DIVIDER_START) {
@@ -492,5 +483,21 @@ public class SimpleItemDecoration extends RecyclerView.ItemDecoration {
         outRect.set(left, top, right, bottom);
     }
 
+    private void validLayoutManager(RecyclerView recyclerView) {
+
+        if (mOrientation == LinearLayoutManager.VERTICAL
+                || mOrientation == LinearLayoutManager.HORIZONTAL) {
+            return;
+        }
+
+        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+        if (layoutManager instanceof LinearLayoutManager) {
+
+            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) layoutManager;
+            mOrientation = linearLayoutManager.getOrientation();
+        } else {
+            throw new IllegalStateException("don't use this item decoration except LinearLayoutManager");
+        }
+    }
 
 }
